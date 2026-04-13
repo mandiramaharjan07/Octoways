@@ -122,6 +122,9 @@ export default function PortfolioGrid({ activeCategory }) {
                     src={project.image} 
                     alt={`Octoways project: ${project.name} — ${project.type} built by Kathmandu software team`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    width="600"
+                    height="450"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                   <div className="absolute bottom-6 left-6 right-6">

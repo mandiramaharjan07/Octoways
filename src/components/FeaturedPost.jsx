@@ -20,7 +20,10 @@ export default function FeaturedPost() {
           <img 
             src={post.image} 
             alt={post.title} 
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            width="1200"
+            height="675"
           />
           <div className="absolute top-6 left-6">
             <span className="bg-primary text-on-primary-fixed px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">

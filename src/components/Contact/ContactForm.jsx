@@ -1,11 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ContactForm() {
-  const handleSubmit = (e) => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    alert('Thank you! Your message has been sent. We will respond within 24 hours.');
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Submission failed. Please try again.");
+    }
   };
+
+  if (submitted) {
+    return (
+      <section className="py-24 px-8 bg-background border-t border-white/5">
+        <div className="max-w-3xl mx-auto text-center bg-surface-container-low p-12 rounded-[2.5rem] shadow-[0_0_50px_rgba(61,146,204,0.1)] relative overflow-hidden">
+          <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-8 text-primary">
+            <span className="material-symbols-outlined text-5xl">send</span>
+          </div>
+          <h2 className="font-headline text-4xl font-bold mb-4 text-white">Message Sent!</h2>
+          <p className="text-on-surface-variant text-lg mb-8">
+            Thank you for reaching out to Octoways. Our team will review your message and get back to you within 24 business hours.
+          </p>
+          <button 
+            onClick={() => setSubmitted(false)}
+            className="bg-primary text-on-primary-fixed px-10 py-4 rounded-2xl font-bold hover:shadow-[0_0_30px_rgba(61,146,204,0.4)] transition-all"
+          >
+            Send Another Message
+          </button>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 px-8 bg-background border-t border-white/5">
@@ -15,14 +53,19 @@ export default function ContactForm() {
           <div className="glass-panel ghost-border p-10 md:p-12 rounded-[2.5rem]">
             <h2 className="font-headline text-3xl font-bold mb-8">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
+              <input type="hidden" name="access_key" value="5ecf3ff2-07dd-4167-8933-68ce0f2fa228" />
+              <input type="hidden" name="from_name" value="Octoways Contact Form" />
+              <input type="hidden" name="subject" value="New Website Inquiry from Octoways" />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="fullName" className="text-sm font-bold text-gray-400 ml-4">Full Name *</label>
                   <input
                     required
                     id="fullName"
+                    name="name"
                     type="text"
-                    className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -31,8 +74,9 @@ export default function ContactForm() {
                   <input
                     required
                     id="phone"
+                    name="phone"
                     type="tel"
-                    className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                    className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                     placeholder="+977-..."
                   />
                 </div>
@@ -43,8 +87,9 @@ export default function ContactForm() {
                 <input
                   required
                   id="email"
+                  name="email"
                   type="email"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                   placeholder="yourname@example.com"
                 />
               </div>
@@ -53,7 +98,8 @@ export default function ContactForm() {
                 <label htmlFor="subject" className="text-sm font-bold text-gray-400 ml-4">Subject</label>
                 <select
                   id="subject"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none"
+                  name="subject_tag"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none shadow-inner hover:bg-surface-variant/50"
                 >
                   <option value="General Inquiry">General Inquiry</option>
                   <option value="Request a Quote">Request a Quote</option>
@@ -68,8 +114,9 @@ export default function ContactForm() {
                 <textarea
                   required
                   id="message"
+                  name="message"
                   rows="5"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none shadow-inner hover:bg-surface-variant/50"
                   placeholder="Tell us about your project or inquiry..."
                 ></textarea>
               </div>

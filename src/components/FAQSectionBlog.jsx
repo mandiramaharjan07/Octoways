@@ -73,6 +73,22 @@ export default function FAQSectionBlog() {
           </p>
         </div>
 
+        {/* FAQ Schema for SEO & GEO Authority */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": blogFaqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })}
+        </script>
+
         <div className="glass-panel p-8 md:p-12 rounded-[2.5rem] border border-white/10">
           {blogFaqs.map((faq, i) => (
             <FAQItem 

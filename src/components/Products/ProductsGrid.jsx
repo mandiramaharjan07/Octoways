@@ -59,6 +59,9 @@ export default function ProductsGrid() {
                   src={product.image} 
                   alt={`${product.name} - ${product.badge} software by Octoways Nepal`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  width="800"
+                  height="500"
                 />
                 <div className="absolute top-6 left-6">
                   <span className="bg-primary/90 backdrop-blur-md text-on-primary-fixed text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">

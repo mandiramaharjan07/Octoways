@@ -22,10 +22,24 @@ const timeSlots = [
 export default function AppointmentForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      if (response.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("Submission failed. Please try again.");
+    }
   };
 
   if (submitted) {
@@ -64,6 +78,10 @@ export default function AppointmentForm() {
           <h2 className="font-headline text-3xl md:text-5xl font-bold mb-10">Confirm Your High-Fidelity Session</h2>
           
           <form onSubmit={handleSubmit} className="space-y-8">
+            <input type="hidden" name="access_key" value="5ecf3ff2-07dd-4167-8933-68ce0f2fa228" />
+            <input type="hidden" name="from_name" value="Octoways Appointment Request" />
+            <input type="hidden" name="subject" value="New Appointment Booking from Octoways Website" />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
                 <label htmlFor="fullName" className="text-sm font-bold text-gray-400 ml-4 flex items-center gap-2">
@@ -72,8 +90,9 @@ export default function AppointmentForm() {
                 <input
                   required
                   id="fullName"
+                  name="name"
                   type="text"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                   placeholder="e.g. Rajesh Sharma"
                 />
               </div>
@@ -84,8 +103,9 @@ export default function AppointmentForm() {
                 <input
                   required
                   id="phone"
+                  name="phone"
                   type="tel"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                   placeholder="+977-98..."
                 />
               </div>
@@ -98,8 +118,9 @@ export default function AppointmentForm() {
               <input
                 required
                 id="email"
+                name="email"
                 type="email"
-                className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner hover:bg-surface-variant/50"
                 placeholder="yourname@domain.com"
               />
             </div>
@@ -111,7 +132,8 @@ export default function AppointmentForm() {
               <select
                 required
                 id="service"
-                className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none"
+                name="service"
+                className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none shadow-inner hover:bg-surface-variant/50"
               >
                 <option value="">Select a service</option>
                 {services.map((service, i) => (
@@ -128,8 +150,9 @@ export default function AppointmentForm() {
                 <input
                   required
                   id="prefDate"
+                  name="preferred_date"
                   type="date"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all [color-scheme:dark]"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all [color-scheme:dark] shadow-inner hover:bg-surface-variant/50"
                 />
               </div>
               <div className="space-y-3">
@@ -139,7 +162,8 @@ export default function AppointmentForm() {
                 <select
                   required
                   id="timeSlot"
-                  className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none"
+                  name="preferred_time"
+                  className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all appearance-none shadow-inner hover:bg-surface-variant/50"
                 >
                   <option value="">Select a slot</option>
                   {timeSlots.map((slot, i) => (
@@ -154,11 +178,11 @@ export default function AppointmentForm() {
                  <span className="material-symbols-outlined text-sm">groups</span> Meeting Type *
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label className="flex items-center gap-4 bg-surface-container-low border border-white/10 p-4 rounded-2xl cursor-pointer hover:border-primary/50 transition-all">
+                <label className="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl cursor-pointer hover:bg-surface-variant/50 transition-all shadow-inner">
                   <input type="radio" name="meetingType" required value="in-person" className="w-5 h-5 accent-primary" />
                   <span className="font-bold text-white">In-Person at Bansbari, Kathmandu</span>
                 </label>
-                <label className="flex items-center gap-4 bg-surface-container-low border border-white/10 p-4 rounded-2xl cursor-pointer hover:border-primary/50 transition-all">
+                <label className="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl cursor-pointer hover:bg-surface-variant/50 transition-all shadow-inner">
                   <input type="radio" name="meetingType" required value="online" className="w-5 h-5 accent-primary" />
                   <span className="font-bold text-white">Online (Google Meet / Zoom)</span>
                 </label>
@@ -171,8 +195,9 @@ export default function AppointmentForm() {
               </label>
               <textarea
                 id="projectDesc"
+                name="message"
                 rows="4"
-                className="w-full bg-surface-container-low border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
+                className="w-full bg-surface-container-low rounded-2xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none shadow-inner hover:bg-surface-variant/50"
                 placeholder="Briefly describe your requirements..."
               ></textarea>
             </div>
@@ -180,7 +205,7 @@ export default function AppointmentForm() {
             <div className="pt-6">
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-6 rounded-[2rem] font-bold text-2xl hover:shadow-[0_0_50px_rgba(61,146,204,0.5)] transition-all active:scale-[0.98] border border-white/10"
+                className="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed py-6 rounded-[2rem] font-bold text-2xl hover:shadow-[0_0_50px_rgba(61,146,204,0.5)] transition-all active:scale-[0.98]"
               >
                 Confirm My Appointment
               </button>

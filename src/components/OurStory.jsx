@@ -16,9 +16,12 @@ export default function OurStory() {
           <div className="glass-panel p-8 rounded-3xl border border-white/10 relative z-10">
              <div className="aspect-square rounded-2xl bg-surface-container-low overflow-hidden border border-white/5 relative">
                <img 
-                 src="https://images.unsplash.com/photo-1522071823991-b9671f9d7f1f?q=80&w=2070&auto=format&fit=crop" 
+                 src="/NEpaligirl.webp" 
                  alt="Octoways development team in Kathmandu, Nepal" 
                  className="w-full h-full object-cover"
+                 loading="lazy"
+                 width="800"
+                 height="800"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
                <div className="absolute bottom-6 left-6">

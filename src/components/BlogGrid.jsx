@@ -18,6 +18,9 @@ function BlogCard({ post, index }) {
           src={post.image} 
           alt={post.title} 
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          loading="lazy"
+          width="800"
+          height="500"
         />
         <div className="absolute top-4 left-4">
           <span className="bg-background/80 backdrop-blur-md border border-white/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
@@ -53,17 +56,13 @@ function BlogCard({ post, index }) {
   );
 }
 
-export default function BlogGrid({ activeCategory }) {
-  const filteredPosts = activeCategory === "All" 
-    ? posts 
-    : posts.filter(post => post.category === activeCategory);
-
+export default function BlogGrid({ posts, indexOffset = 0 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {filteredPosts.map((post, i) => (
-        <BlogCard key={post.slug} post={post} index={i} />
+      {posts.map((post, i) => (
+        <BlogCard key={post.slug} post={post} index={i + indexOffset} />
       ))}
-      {filteredPosts.length === 0 && (
+      {posts.length === 0 && (
         <div className="col-span-full py-20 text-center">
           <h3 className="text-2xl font-bold text-gray-500">No posts found in this category.</h3>
         </div>

@@ -41,7 +41,7 @@ export default function Hero() {
               <img
                 alt="High-fidelity cybernetic octopus with bioluminescent neural circuitry - Octoways Brand Mascot"
                 className="w-full h-full object-cover"
-                src="/mascot-blue.png"
+                src="/mascot-blue.webp"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
