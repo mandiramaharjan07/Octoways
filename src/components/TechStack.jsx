@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 export default function TechStack() {
   return (
-    <section className="py-24 px-8 bg-surface border-t border-white/5">
+    <section id="section-stack" className="py-24 px-8 bg-surface border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <SectionTitle className="mb-4">Proprietary AI Stack</SectionTitle>

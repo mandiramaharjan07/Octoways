@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutHero() {
   return (
-    <section className="relative py-24 px-8 overflow-hidden bg-animated-neural min-h-[60vh] flex items-center justify-center">
+    <section id="about-hero" className="relative py-24 px-8 overflow-hidden bg-animated-neural min-h-[60vh] flex items-center justify-center">
       {/* Grid Overlay */}
       <div className="absolute inset-0 opacity-20 pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(var(--color-primary-fixed-dim) 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>

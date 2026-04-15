@@ -31,7 +31,7 @@ const services = [
 
 export default function WhatWeDoAbout() {
   return (
-    <section className="py-24 px-8 bg-surface-container-low">
+    <section id="about-what-we-do" className="py-24 px-8 bg-surface-container-low">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">What We Do</h2>

@@ -9,7 +9,7 @@ export default function WorksHero() {
   ];
 
   return (
-    <section className="relative min-h-[50vh] flex items-center px-8 pt-20 overflow-hidden bg-animated-neural">
+    <section id="works-hero" className="relative min-h-[50vh] flex items-center px-8 pt-20 overflow-hidden bg-animated-neural">
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-background/50 to-background z-0"></div>
       
       <div className="max-w-7xl mx-auto w-full relative z-10 text-center">

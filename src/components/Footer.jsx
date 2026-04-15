@@ -50,7 +50,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-zinc-950 font-body text-sm leading-relaxed border-t border-white/5">
+    <footer id="section-cta" className="bg-zinc-950 font-body text-sm leading-relaxed border-t border-white/5">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 md:px-12 py-20 w-full">
         <div className="flex flex-col gap-8">
           <Link to="/" className="flex items-center gap-3">

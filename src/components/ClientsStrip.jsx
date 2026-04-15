@@ -8,7 +8,7 @@ export default function ClientsStrip() {
   ];
 
   return (
-    <section className="py-20 bg-surface-container-low border-y border-white/5 overflow-hidden">
+    <section id="about-clients" className="py-20 bg-surface-container-low border-y border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 mb-12 text-center">
         <h2 className="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs">
           Trusted by Leading Brands in Nepal and Beyond

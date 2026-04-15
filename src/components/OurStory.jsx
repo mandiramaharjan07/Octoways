@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function OurStory() {
   return (
-    <section className="py-24 px-8 bg-background relative overflow-hidden">
+    <section id="about-story" className="py-24 px-8 bg-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}

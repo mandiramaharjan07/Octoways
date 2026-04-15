@@ -67,7 +67,7 @@ export default function FAQSection({
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 px-8 bg-background">
+    <section id="about-faq" className="py-24 px-8 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">{title}</h2>

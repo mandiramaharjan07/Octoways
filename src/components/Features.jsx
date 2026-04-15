@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 export default function Features() {
   return (
-    <section className="py-24 px-8 bg-surface">
+    <section id="section-services" className="py-24 px-8 bg-surface">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <span className="text-secondary font-bold tracking-widest text-sm uppercase mb-4 block">Our Core Competencies</span>
         <SectionTitle className="mb-4 text-center">Why Octoways Leads in AI Development</SectionTitle>

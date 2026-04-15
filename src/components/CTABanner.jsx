@@ -7,7 +7,7 @@ export default function CTABanner({
   buttonLink = "/book-an-appointment"
 }) {
   return (
-    <section className="py-24 px-8 bg-background relative overflow-hidden">
+    <section id="section-cta" className="py-24 px-8 bg-background relative overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl aspect-video bg-primary/10 blur-[150px] rounded-full pointer-events-none"></div>
       

@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 export default function Impact() {
   return (
-    <section className="py-24 px-8 bg-surface-container-low border-y border-white/5 relative">
+    <section id="section-stats" className="py-24 px-8 bg-surface-container-low border-y border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -13,19 +13,19 @@ export default function Impact() {
               Octoways is an <strong>AI-focused custom software development company</strong> that empowers global enterprises. We integrate advanced neural architectures into scalable software solutions, bridging the gap between algorithmic complexity and business intuition.
             </p>
             <div className="grid grid-cols-2 gap-6">
-              <div className="glass-panel ghost-border p-6 rounded-xl hover:border-primary/50 transition-colors">
+              <div id="stat-years" className="glass-panel ghost-border p-6 rounded-xl hover:border-primary/50 transition-colors">
                 <h3 className="text-4xl font-bold text-white mb-1">12+</h3>
                 <p className="text-gray-400 text-sm font-semibold">Years of AI Engineering</p>
               </div>
-              <div className="glass-panel ghost-border p-6 rounded-xl hover:border-secondary/50 transition-colors">
+              <div id="stat-patents" className="glass-panel ghost-border p-6 rounded-xl hover:border-secondary/50 transition-colors">
                 <h3 className="text-4xl font-bold text-white mb-1">45+</h3>
                 <p className="text-gray-400 text-sm font-semibold">Patented AI Models</p>
               </div>
-              <div className="glass-panel ghost-border p-6 rounded-xl hover:border-primary/50 transition-colors">
+              <div id="stat-solutions" className="glass-panel ghost-border p-6 rounded-xl hover:border-primary/50 transition-colors">
                 <h3 className="text-4xl font-bold text-white mb-1">1.2k+</h3>
                 <p className="text-gray-400 text-sm font-semibold">Global AI Solutions</p>
               </div>
-              <div className="glass-panel ghost-border p-6 rounded-xl hover:border-secondary/50 transition-colors">
+              <div id="stat-countries" className="glass-panel ghost-border p-6 rounded-xl hover:border-secondary/50 transition-colors">
                 <h3 className="text-4xl font-bold text-white mb-1">30+</h3>
                 <p className="text-gray-400 text-sm font-semibold">Countries Reached</p>
               </div>

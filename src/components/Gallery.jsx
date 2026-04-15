@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 export default function Gallery() {
   return (
-    <section className="py-24 px-8 bg-surface-container-lowest">
+    <section id="section-gallery" className="py-24 px-8 bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 flex flex-col md:flex-row justify-between items-end gap-6 border-l-4 border-primary pl-8">
           <div>

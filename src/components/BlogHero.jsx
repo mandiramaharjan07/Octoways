@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 
 export default function BlogHero() {
   return (
-    <section className="relative pt-32 pb-24 px-8 bg-animated-neural overflow-hidden min-h-[40vh] flex flex-col items-center justify-center text-center">
+    <section id="blog-hero" className="relative pt-32 pb-24 px-8 bg-animated-neural overflow-hidden min-h-[40vh] flex flex-col items-center justify-center text-center">
       <div className="absolute inset-0 bg-primary/5 opacity-40"></div>
       
       <div className="max-w-4xl mx-auto relative z-10">

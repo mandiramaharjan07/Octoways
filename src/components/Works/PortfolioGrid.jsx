@@ -100,7 +100,7 @@ export default function PortfolioGrid({ activeCategory }) {
     : projects.filter(p => p.categories.includes(activeCategory));
 
   return (
-    <section className="py-24 px-8 bg-background">
+    <section id="works-grid" className="py-24 px-8 bg-background">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           layout

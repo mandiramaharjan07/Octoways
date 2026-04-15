@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 export default function Workflow() {
   return (
-    <section className="py-24 px-8 bg-surface-container-low relative overflow-hidden">
+    <section id="section-workflow" className="py-24 px-8 bg-surface-container-low relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
           <SectionTitle>The Octoways AI Workflow</SectionTitle>
